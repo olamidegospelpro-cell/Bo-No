@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1c1917" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Bo-No" />
+    <title>Bo-No</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="icon" href="./icons/icon-192.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-mode="note">
+      <header class="topbar">
+        <button class="brand-button" id="coverButton" type="button" aria-label="Open cover">
+          <span class="brand-mark">B</span>
+          <span class="brand-copy">
+            <span>Bo-No</span>
+            <small>Book-Note</small>
+          </span>
+        </button>
+
+        <nav class="tabs" aria-label="Book sections">
+          <button class="tab is-active" type="button" data-category="content">Content</button>
+          <button class="tab" type="button" data-category="script">Script</button>
+          <button class="tab" type="button" data-category="plans">Plans</button>
+          <button class="tab" type="button" data-category="todo">To-Do</button>
+          <button class="tab" type="button" data-category="more">More</button>
+        </nav>
+      </header>
+
+      <main class="book">
+        <section class="cover-panel" id="coverPanel" aria-live="polite">
+          <div class="cover-card">
+            <p class="eyebrow">Flashback</p>
+            <h1>Trash or Treasure?</h1>
+            <p class="flashback-text" id="flashbackText">Your older pages will resurface here once Bo-No has something to remember.</p>
+            <div class="flashback-meta" id="flashbackMeta">Start writing. Future-you will meet it here.</div>
+            <div class="flashback-actions">
+              <button class="soft-button" id="keepAliveButton" type="button">Keep Alive</button>
+              <button class="ghost-button" id="archiveButton" type="button">Archive</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-stage" aria-label="Notebook pages">
+          <button class="corner-button prev" id="prevPageButton" type="button" aria-label="Previous page"></button>
+          <div class="spread" id="spread" tabindex="0">
+            <article class="page">
+              <div class="page-header">
+                <div>
+                  <p class="page-kicker" id="pageCategory">Content</p>
+                  <input class="title-input" id="noteTitle" type="text" placeholder="Untitled thought" autocomplete="off" />
+                </div>
+                <button class="icon-button" id="newPageButton" type="button" aria-label="New page" title="New page">+</button>
+              </div>
+
+              <textarea class="note-body" id="noteBody" placeholder="Put the thought here. One spread at a time."></textarea>
+
+              <div class="page-footer">
+                <span id="pageDate">Today</span>
+                <span id="pageCounter">Page 1 of 1</span>
+              </div>
+            </article>
+          </div>
+          <button class="corner-button next" id="nextPageButton" type="button" aria-label="Next page"></button>
+        </section>
+      </main>
+
+      <footer class="tool-dock" aria-label="Formatting and reminder tools">
+        <button type="button" data-insert="- ">List</button>
+        <button type="button" data-insert="- [ ] ">Check</button>
+        <button type="button" data-insert="INT. ">INT.</button>
+        <button type="button" data-insert="EXT. ">EXT.</button>
+        <button type="button" data-insert="CHARACTER\n">Cue</button>
+        <button class="ping-button" id="pingButton" type="button">Ping</button>
+      </footer>
+
+      <div class="ping-sheet" id="pingSheet" aria-hidden="true">
+        <div class="ping-card">
+          <div class="sheet-handle"></div>
+          <h2>Gentle Ping</h2>
+          <p id="pingSnippet">Bring this page back with a soft nudge.</p>
+          <div class="ping-grid">
+            <button type="button" data-minutes="1">1 min</button>
+            <button type="button" data-minutes="30">30 min</button>
+            <button type="button" data-minutes="60">1 hr</button>
+            <button type="button" data-minutes="180">3 hr</button>
+          </div>
+          <button class="ghost-button full" id="closePingButton" type="button">Cancel</button>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <audio id="chime" preload="auto"></audio>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

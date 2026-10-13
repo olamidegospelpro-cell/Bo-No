@@ -1,0 +1,10 @@
+{
+  "name": "bo-no",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bo-No, a mobile-first offline book-note PWA.",
+  "scripts": {
+    "start": "python -m http.server 4173",
+    "vercel-build": "echo Static PWA ready"
+  }
+}
