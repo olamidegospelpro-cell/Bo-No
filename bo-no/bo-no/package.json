@@ -1,0 +1,10 @@
+{
+  "name": "bojo-book-journal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BoJo — Book Journal, a mobile-first offline personal journal PWA.",
+  "scripts": {
+    "start": "python -m http.server 4173",
+    "vercel-build": "echo Static PWA ready"
+  }
+}
